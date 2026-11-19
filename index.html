@@ -186,7 +186,43 @@
         body.theme-ocean #timer-mode-stopwatch { color:#5d8993 !important; }
         body.theme-soft #timer-display, body.theme-lavender #timer-display, body.theme-mist #timer-display, body.theme-ocean #timer-display { text-shadow:none !important; }
 
-    </style>
+    
+        /* A single gentle subject palette, intentionally unaffected by theme switching */
+        .subject-emerald-badge { background:#e3eadf !important; color:#53684f !important; border-color:#cbd8c5 !important; }
+        .subject-teal-badge    { background:#deebe6 !important; color:#4f6b64 !important; border-color:#c5d9d1 !important; }
+        .subject-blue-badge    { background:#e1e9f1 !important; color:#52677d !important; border-color:#cbd8e5 !important; }
+        .subject-sky-badge     { background:#e1edf0 !important; color:#52717a !important; border-color:#c8dce1 !important; }
+        .subject-amber-badge   { background:#f1ead9 !important; color:#796947 !important; border-color:#e3d6b8 !important; }
+        .subject-rose-badge    { background:#f0e2e1 !important; color:#805e5d !important; border-color:#e2cdcb !important; }
+        .subject-purple-badge  { background:#ebe5f0 !important; color:#6d5d78 !important; border-color:#d9cde2 !important; }
+        .subject-indigo-badge  { background:#e4e7f1 !important; color:#5d6480 !important; border-color:#cfd4e5 !important; }
+        .subject-emerald-dot { background:#a9bd9f !important; }
+        .subject-teal-dot    { background:#9fbfb2 !important; }
+        .subject-blue-dot    { background:#a8bdd1 !important; }
+        .subject-sky-dot     { background:#a8c8d0 !important; }
+        .subject-amber-dot   { background:#d2bd8c !important; }
+        .subject-rose-dot    { background:#d1aaa8 !important; }
+        .subject-purple-dot  { background:#bba9c9 !important; }
+        .subject-indigo-dot  { background:#aeb5d0 !important; }
+        .subject-emerald-bar { border-left-color:#a9bd9f !important; }
+        .subject-teal-bar    { border-left-color:#9fbfb2 !important; }
+        .subject-blue-bar    { border-left-color:#a8bdd1 !important; }
+        .subject-sky-bar     { border-left-color:#a8c8d0 !important; }
+        .subject-amber-bar   { border-left-color:#d2bd8c !important; }
+        .subject-rose-bar    { border-left-color:#d1aaa8 !important; }
+        .subject-purple-bar  { border-left-color:#bba9c9 !important; }
+        .subject-indigo-bar  { border-left-color:#aeb5d0 !important; }
+        .subject-swatch { border:1px solid rgba(80,85,90,.12); }
+        .subject-emerald-swatch { background:#a9bd9f !important; }
+        .subject-teal-swatch    { background:#9fbfb2 !important; }
+        .subject-blue-swatch    { background:#a8bdd1 !important; }
+        .subject-sky-swatch     { background:#a8c8d0 !important; }
+        .subject-amber-swatch   { background:#d2bd8c !important; }
+        .subject-rose-swatch    { background:#d1aaa8 !important; }
+        .subject-purple-swatch  { background:#bba9c9 !important; }
+        .subject-indigo-swatch  { background:#aeb5d0 !important; }
+        input[name="task-color"]:checked + .subject-swatch { outline:2px solid #879b83; outline-offset:2px; }
+</style>
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
@@ -438,42 +474,42 @@
                     <div class="grid grid-cols-4 gap-2 pt-1">
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="emerald" checked class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-emerald-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-emerald-600"></span>
+                            <span class="subject-swatch subject-emerald-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">초록</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="teal" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-teal-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-teal-600"></span>
+                            <span class="subject-swatch subject-teal-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">청록</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="blue" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-blue-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-blue-600"></span>
+                            <span class="subject-swatch subject-blue-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">파랑</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="sky" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-sky-400 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-sky-500"></span>
+                            <span class="subject-swatch subject-sky-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">하늘</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="amber" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-amber-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-amber-600"></span>
+                            <span class="subject-swatch subject-amber-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">주황</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="rose" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-rose-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-rose-600"></span>
+                            <span class="subject-swatch subject-rose-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">장미</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="purple" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-purple-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-purple-600"></span>
+                            <span class="subject-swatch subject-purple-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">보라</span>
                         </label>
                         <label class="cursor-pointer flex items-center gap-2 p-1.5 rounded-lg border border-slate-100 hover:bg-slate-50">
                             <input type="radio" name="task-color" value="indigo" class="peer sr-only">
-                            <span class="w-5 h-5 rounded-full bg-indigo-500 peer-checked:ring-2 peer-checked:ring-offset-1 peer-checked:ring-indigo-600"></span>
+                            <span class="subject-swatch subject-indigo-swatch w-5 h-5 rounded-full"></span>
                             <span class="text-xs text-slate-600 font-medium">남색</span>
                         </label>
                     </div>
@@ -607,15 +643,16 @@
         let isTimerRunning = false;
 
         // Color maps for dynamic styling
+        // Soft, theme-independent subject colors. Existing saved color keys remain compatible.
         const COLOR_STYLE_MAP = {
-            emerald: { badge: 'bg-emerald-100 text-emerald-800 border-emerald-300', dot: 'bg-emerald-500', bar: 'border-l-emerald-500' },
-            teal:    { badge: 'bg-teal-100 text-teal-800 border-teal-300',       dot: 'bg-teal-500',    bar: 'border-l-teal-500' },
-            blue:    { badge: 'bg-blue-100 text-blue-800 border-blue-300',       dot: 'bg-blue-500',    bar: 'border-l-blue-500' },
-            sky:     { badge: 'bg-sky-100 text-sky-800 border-sky-300',          dot: 'bg-sky-400',     bar: 'border-l-sky-400' },
-            amber:   { badge: 'bg-amber-100 text-amber-800 border-amber-300',    dot: 'bg-amber-500',   bar: 'border-l-amber-500' },
-            rose:    { badge: 'bg-rose-100 text-rose-800 border-rose-300',       dot: 'bg-rose-500',    bar: 'border-l-rose-500' },
-            purple:  { badge: 'bg-purple-100 text-purple-800 border-purple-300', dot: 'bg-purple-500',  bar: 'border-l-purple-500' },
-            indigo:  { badge: 'bg-indigo-100 text-indigo-800 border-indigo-300', dot: 'bg-indigo-500',  bar: 'border-l-indigo-500' }
+            emerald: { badge: 'subject-emerald-badge', dot: 'subject-emerald-dot', bar: 'subject-emerald-bar' },
+            teal:    { badge: 'subject-teal-badge',    dot: 'subject-teal-dot',    bar: 'subject-teal-bar' },
+            blue:    { badge: 'subject-blue-badge',    dot: 'subject-blue-dot',    bar: 'subject-blue-bar' },
+            sky:     { badge: 'subject-sky-badge',     dot: 'subject-sky-dot',     bar: 'subject-sky-bar' },
+            amber:   { badge: 'subject-amber-badge',   dot: 'subject-amber-dot',   bar: 'subject-amber-bar' },
+            rose:    { badge: 'subject-rose-badge',    dot: 'subject-rose-dot',    bar: 'subject-rose-bar' },
+            purple:  { badge: 'subject-purple-badge',  dot: 'subject-purple-dot',  bar: 'subject-purple-bar' },
+            indigo:  { badge: 'subject-indigo-badge',  dot: 'subject-indigo-dot',  bar: 'subject-indigo-bar' }
         };
 
         // Initialize App
