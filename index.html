@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Font (Inter & Noto Sans KR & Retro Digital Clock Fonts) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Orbitron:wght@700;900&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Square+Round:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -210,6 +212,13 @@
                     <option value="lavender">파스텔 라벤더</option>
                     <option value="mist">포근한 블루그레이</option>
                     <option value="ocean">잔잔한 바다</option>
+                </select>
+                <select id="fontSelector" class="theme-select text-xs font-semibold px-2.5 py-2 rounded-lg max-w-[132px]" aria-label="글꼴 선택">
+                    <option value="pretendard">Pretendard</option>
+                    <option value="nanum">나눔스퀘어라운드</option>
+                    <option value="gowun-dodum">고운돋움</option>
+                    <option value="noto">Noto Sans KR</option>
+                    <option value="gowun-batang">고운바탕</option>
                 </select>
                 <a href="https://seoyeonahn11111.github.io/c/" class="text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-2 rounded-lg transition-colors whitespace-nowrap"><i class="fa-solid fa-book-open mr-1"></i> 단어 암기 노트</a>
                 <button onclick="resetDataConfirmation()" class="text-xs text-slate-400 hover:text-red-500 transition-colors px-2 py-1 rounded">
@@ -1478,6 +1487,36 @@
         });
         window.addEventListener('storage', (event) => {
             if (event.key === key && themes.includes(event.newValue)) apply(event.newValue);
+        });
+    })();
+</script>
+<script>
+    // Shared font preference across both study sites (same browser/origin)
+    (() => {
+        const key = 'study_shared_font';
+        const selector = document.getElementById('fontSelector');
+        const fonts = {
+            'pretendard': "'Pretendard', sans-serif",
+            'nanum': "'Nanum Square Round', sans-serif",
+            'gowun-dodum': "'Gowun Dodum', sans-serif",
+            'noto': "'Noto Sans KR', sans-serif",
+            'gowun-batang': "'Gowun Batang', serif"
+        };
+        const apply = (font) => {
+            const selected = Object.prototype.hasOwnProperty.call(fonts, font) ? font : 'pretendard';
+            document.body.style.fontFamily = fonts[selected];
+            selector.value = selected;
+        };
+        const initial = localStorage.getItem(key) || 'pretendard';
+        if (!localStorage.getItem(key)) localStorage.setItem(key, initial);
+        apply(initial);
+        selector.addEventListener('change', () => {
+            const font = Object.prototype.hasOwnProperty.call(fonts, selector.value) ? selector.value : 'pretendard';
+            localStorage.setItem(key, font);
+            apply(font);
+        });
+        window.addEventListener('storage', (event) => {
+            if (event.key === key && event.newValue) apply(event.newValue);
         });
     })();
 </script>
