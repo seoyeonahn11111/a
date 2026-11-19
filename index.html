@@ -51,6 +51,25 @@
             color: #0f172a;
             text-shadow: none;
         }
+    
+        /* Cozy pastel lavender theme */
+        body.lavender-theme { background:#f8f5fb !important; color:#51485b !important; }
+        body.lavender-theme header { background:rgba(255,253,250,.94) !important; border-color:#e8ddec !important; }
+        body.lavender-theme .bg-white, body.lavender-theme .bg-white\/90 { background-color:#fffdfa !important; }
+        body.lavender-theme [class*="border-yellow-"] { border-color:#e8ddec !important; }
+        body.lavender-theme [class*="bg-yellow-"] { background-color:#f4eee5 !important; }
+        body.lavender-theme [class*="text-amber-"] { color:#927b68 !important; }
+        body.lavender-theme [class*="bg-emerald-"] { background-color:#b9a4cf !important; }
+        body.lavender-theme [class*="hover:bg-emerald-"]:hover { background-color:#a58cbe !important; }
+        body.lavender-theme [class*="text-emerald-"] { color:#8b70a5 !important; }
+        body.lavender-theme [class*="border-emerald-"] { border-color:#d9c9e4 !important; }
+        body.lavender-theme [class*="ring-emerald-"] { --tw-ring-color:#c9b5d9 !important; }
+        body.lavender-theme .drag-over { background-color:#eee5f4 !important; border-color:#a58cbe !important; }
+        body.lavender-theme .lcd-screen { background:#f4eee5 !important; border-color:#d9c9e4 !important; box-shadow:inset 0 0 10px rgba(165,140,190,.15),0 2px 8px rgba(0,0,0,.04) !important; }
+        body.lavender-theme #today-date-display { background:#f4eee5 !important; border-color:#e8ddec !important; color:#806d5f !important; }
+        body.lavender-theme input, body.lavender-theme textarea, body.lavender-theme select { accent-color:#a58cbe; }
+        body.lavender-theme .theme-toggle-btn { background:#f1eaf5 !important; color:#806d96 !important; border:1px solid #e2d5eb !important; }
+    
     </style>
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
@@ -72,6 +91,7 @@
                 <div id="today-date-display" class="hidden sm:block text-xs text-slate-600 bg-yellow-100/70 border border-yellow-200/80 px-3 py-1.5 rounded-lg font-medium">
                     <!-- Real-time date displayed via JS -->
                 </div>
+                <button id="lavenderThemeToggle" class="theme-toggle-btn text-xs font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap" type="button"><i class="fa-solid fa-palette mr-1"></i><span>라벤더 테마</span></button>
                 <a href="https://seoyeonahn11111.github.io/c/" class="text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-2 rounded-lg transition-colors whitespace-nowrap"><i class="fa-solid fa-book-open mr-1"></i> 단어 암기 노트</a>
                 <button onclick="resetDataConfirmation()" class="text-xs text-slate-400 hover:text-red-500 transition-colors px-2 py-1 rounded">
                     <i class="fa-solid fa-rotate-left mr-1"></i> 데이터 초기화
@@ -1315,5 +1335,25 @@
             }, 3000);
         }
     </script>
+<script>
+
+    // Pastel lavender theme toggle (saved on this browser)
+    (() => {
+        const key = 'planner_color_theme';
+        const btn = document.getElementById('lavenderThemeToggle');
+        const apply = (enabled) => {
+            document.body.classList.toggle('lavender-theme', enabled);
+            btn.querySelector('span').textContent = enabled ? '기본 테마' : '라벤더 테마';
+            btn.title = enabled ? '기본 색상으로 돌아가기' : '포근한 라벤더 색상 적용';
+        };
+        apply(localStorage.getItem(key) === 'lavender');
+        btn.addEventListener('click', () => {
+            const enabled = !document.body.classList.contains('lavender-theme');
+            localStorage.setItem(key, enabled ? 'lavender' : 'default');
+            apply(enabled);
+        });
+    })();
+    
+</script>
 </body>
 </html>
