@@ -55,6 +55,16 @@
         }
     
         
+        /* Exam registration buttons follow the active theme */
+        body.theme-soft .exam-register-btn, html.theme-soft body .exam-register-btn { background:#d5b7a6 !important; color:#66534a !important; border-color:#e5cfc2 !important; }
+        body.theme-soft .exam-register-btn:hover, html.theme-soft body .exam-register-btn:hover { background:#cba995 !important; }
+        body.theme-lavender .exam-register-btn, html.theme-lavender body .exam-register-btn { background:#c7b5d6 !important; color:#554866 !important; border-color:#ded1e7 !important; }
+        body.theme-lavender .exam-register-btn:hover, html.theme-lavender body .exam-register-btn:hover { background:#b9a4cf !important; }
+        body.theme-mist .exam-register-btn, html.theme-mist body .exam-register-btn { background:#b9c8d0 !important; color:#465761 !important; border-color:#d1dce1 !important; }
+        body.theme-mist .exam-register-btn:hover, html.theme-mist body .exam-register-btn:hover { background:#a9bbc5 !important; }
+        body.theme-ocean .exam-register-btn, html.theme-ocean body .exam-register-btn { background:#a9cbd0 !important; color:#3f6265 !important; border-color:#c9dfe0 !important; }
+        body.theme-ocean .exam-register-btn:hover, html.theme-ocean body .exam-register-btn:hover { background:#97bdc3 !important; }
+
         /* Soft, low-contrast pastel palettes */
         .theme-select { background:#fffdfa; color:#756c77; border:1px solid #e8dfeb; outline:none; }
         .theme-select:focus { box-shadow:0 0 0 2px rgba(185,164,207,.22); }
@@ -322,7 +332,7 @@
                         <h3 class="font-bold text-slate-800 text-base" id="selected-date-title">선택한 날짜 상세 계획</h3>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="openAddExamModal()" class="px-3 py-1.5 text-xs font-semibold bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg transition-colors flex items-center gap-1.5 border border-rose-200">
+                        <button onclick="openAddExamModal()" class="exam-register-btn px-3 py-1.5 text-xs font-semibold bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg transition-colors flex items-center gap-1.5 border border-rose-200">
                             <i class="fa-regular fa-calendar-check"></i> 시험 등록
                         </button>
                         <button onclick="openAddTaskModal()" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors flex items-center gap-1.5 shadow-xs">
@@ -585,7 +595,7 @@
                 </div>
                 <div class="pt-3 flex gap-2">
                     <button type="button" onclick="closeModal('add-exam-modal')" class="w-1/2 py-2.5 border border-slate-200 rounded-xl text-slate-600 font-semibold text-sm hover:bg-slate-50 transition-colors">취소</button>
-                    <button type="submit" class="w-1/2 py-2.5 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-semibold text-sm transition-colors shadow-xs">시험 등록</button>
+                    <button type="submit" class="exam-register-btn w-1/2 py-2.5 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-semibold text-sm transition-colors shadow-xs">시험 등록</button>
                 </div>
             </form>
         </div>
