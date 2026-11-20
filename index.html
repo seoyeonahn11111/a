@@ -268,6 +268,50 @@
         .subject-purple-swatch  { background:#bba9c9 !important; }
         .subject-indigo-swatch  { background:#aeb5d0 !important; }
         input[name="task-color"]:checked + .subject-swatch { outline:2px solid #879b83; outline-offset:2px; }
+        /* Responsive layout adjustments: phone and tablet only */
+        @media (max-width: 1023px) {
+            header > div.max-w-7xl {
+                height:auto !important; min-height:4rem; padding-top:.75rem; padding-bottom:.75rem;
+                flex-wrap:wrap; row-gap:.75rem;
+            }
+            header > div.max-w-7xl > div:last-child { display:flex; flex-wrap:wrap; gap:.5rem; max-width:100%; }
+            main.max-w-7xl { grid-template-columns:minmax(0,1fr) !important; width:100%; }
+            main.max-w-7xl > section { min-width:0; width:100%; }
+            #add-task-modal, #move-task-modal, #add-exam-modal, #confirm-modal {
+                overflow-y:auto; align-items:flex-start; padding:1rem;
+            }
+            #add-task-modal > div, #move-task-modal > div, #add-exam-modal > div, #confirm-modal > div {
+                margin:auto 0; max-height:calc(100dvh - 2rem); overflow-y:auto;
+            }
+        }
+        @media (max-width: 640px) {
+            header > div.max-w-7xl { padding-left:1rem; padding-right:1rem; }
+            header > div.max-w-7xl > div:first-child { min-width:0; }
+            header h1 { font-size:1rem !important; }
+            header > div.max-w-7xl > div:last-child { width:100%; align-items:center; }
+            header > div.max-w-7xl > div:last-child select { flex:1 1 7.5rem; min-width:0; max-width:none; }
+            header > div.max-w-7xl > div:last-child a { flex:1 1 100%; text-align:center; }
+            main.max-w-7xl { padding:1rem .75rem; gap:1rem; }
+            main.max-w-7xl > section { gap:1rem; }
+            main.max-w-7xl > section > .bg-white\/90 { padding:1rem; }
+            #calendar-month-year { font-size:1.05rem; }
+            #calendar-days-grid { gap:.2rem !important; }
+            #calendar-days-grid > div { min-height:3.75rem !important; padding:.3rem !important; border-radius:.55rem !important; }
+            #calendar-days-grid > div > div:last-child { margin-top:.2rem; }
+            #calendar-days-grid > div > div:last-child > div { font-size:8px !important; line-height:1.2; padding:1px 3px; }
+            #daily-comment-input { min-width:0; width:100%; font-size:14px; }
+            #selected-date-title { font-size:.9rem; }
+            #selected-day-tasks-list > div:not(:last-child) { flex-wrap:wrap; row-gap:.6rem; }
+            #selected-day-tasks-list > div:not(:last-child) > div:last-child { margin-left:auto; }
+            #exams-dday-list > div { min-width:0; gap:.5rem; }
+            #toast-container { left:.75rem; right:.75rem; bottom:.75rem; align-items:stretch; }
+        }
+        @media (max-width: 380px) {
+            #calendar-days-grid > div { min-height:3.25rem !important; padding:.2rem !important; }
+            #calendar-days-grid > div > div:last-child > div { font-size:7px !important; }
+            #calendar-month-year { font-size:.95rem; }
+            #add-task-modal > div, #move-task-modal > div, #add-exam-modal > div, #confirm-modal > div { padding:1rem; }
+        }
 </style>
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
